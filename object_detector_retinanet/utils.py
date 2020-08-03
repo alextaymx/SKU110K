@@ -39,7 +39,7 @@ def create_folder(path):
 
 
 def root_dir():
-    if 'google.colab' in sys.modules:
+    if 'COLAB_GPU' in os.environ:
         return os.path.join('/content', 'SKU110K')
     elif platform.system() == 'Linux':
         return os.path.join(os.getenv('HOME'), 'Documents', 'SKU110K')
