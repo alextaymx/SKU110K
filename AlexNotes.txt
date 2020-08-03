@@ -1,0 +1,9 @@
+C:\Users\user\Documents\GitHub\SKU110K_CVPR19\iou_resnet50_csv_06.h5
+set PYTHONPATH=%PYTHONPATH%;C:\Users\user\Documents\GitHub\SKU110K_CVPR19
+
+
+cd C:\Users\user\Documents\GitHub\SKU110K
+set PYTHONPATH=%PYTHONPATH%;%cd%
+
+
+python -u object_detector_retinanet/keras_retinanet/bin/predict.py csv "C:\Users\user\Documents\GitHub\SKU110K\iou_resnet50_csv_06.h5" --hard_score_rate=0.5
