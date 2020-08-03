@@ -326,7 +326,7 @@ def parse_args(args):
                        action='store_const', const=False)
 
     parser.add_argument('--backbone', help='Backbone model used by retinanet.', default='resnet50', type=str)
-    parser.add_argument('--batch-size', help='Size of the batches.', default=1, type=int)
+    parser.add_argument('--batch-size', help='Size of the batches.', default=32, type=int)
     parser.add_argument('--gpu', help='Id of the GPU to use (as reported by nvidia-smi).')
     parser.add_argument('--multi-gpu', help='Number of GPUs to use for parallel processing.', type=int, default=0)
     parser.add_argument('--multi-gpu-force', help='Extra flag needed to enable (experimental) multi-gpu support.',
@@ -344,9 +344,13 @@ def parse_args(args):
     parser.add_argument('--freeze-backbone', help='Freeze training of backbone layers.', action='store_true')
     parser.add_argument('--random-transform', help='Randomly transform image and annotations.', action='store_true')
     parser.add_argument('--image-min-side', help='Rescale the image so the smallest side is min_side.', type=int,
-                        default=800)
+                        default=400)
     parser.add_argument('--image-max-side', help='Rescale the image if the largest side is larger than max_side.',
-                        type=int, default=1333)
+                        type=int, default=666)
+    # parser.add_argument('--image-min-side', help='Rescale the image so the smallest side is min_side.', type=int,
+    #                     default=800)
+    # parser.add_argument('--image-max-side', help='Rescale the image if the largest side is larger than max_side.',
+    #                     type=int, default=1333)
 
     return check_args(parser.parse_args(args))
 
