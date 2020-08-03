@@ -9,7 +9,7 @@ FILE_EXISTS_ERROR = (17, 'File exists')
 
 IMG_FOLDER = 'images'
 ANNOTATION_FOLDER = 'annotations'
-DEBUG_MODE = False #'ubuntu' not in os.environ['HOME']
+DEBUG_MODE = False  # 'ubuntu' not in os.environ['HOME']
 if DEBUG_MODE:
     IMG_FOLDER += '_debug'
     ANNOTATION_FOLDER += '_debug'
@@ -40,7 +40,7 @@ def create_folder(path):
 
 def root_dir():
     if 'COLAB_GPU' in os.environ:
-        return os.path.join('/content', 'SKU110K')
+        return os.path.join('/content', 'repositorySKU')
     elif platform.system() == 'Linux':
         return os.path.join(os.getenv('HOME'), 'Documents', 'SKU110K')
     elif platform.system() == 'Windows':
@@ -48,8 +48,12 @@ def root_dir():
 
 
 def image_path():
+    if 'COLAB_GPU' in os.environ:
+        return os.path.join('/content', 'dataset', 'images')
     return os.path.join(root_dir(), IMG_FOLDER)
 
 
 def annotation_path():
+    if 'COLAB_GPU' in os.environ:
+        return os.path.join('/content', 'dataset', 'annotations')
     return os.path.join(root_dir(), ANNOTATION_FOLDER)
