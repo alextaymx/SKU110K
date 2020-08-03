@@ -39,7 +39,9 @@ def create_folder(path):
 
 
 def root_dir():
-    if platform.system() == 'Linux':
+    if 'google.colab' in sys.modules:
+        return os.path.join('/content', 'SKU110K')
+    elif platform.system() == 'Linux':
         return os.path.join(os.getenv('HOME'), 'Documents', 'SKU110K')
     elif platform.system() == 'Windows':
         return os.path.abspath('C:/Users/{}/Documents/Github/SKU110K/'.format(os.getenv('username')))
