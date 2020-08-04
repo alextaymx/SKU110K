@@ -132,6 +132,8 @@ def main(args=None):
         os.environ["CUDA_VISIBLE_DEVICES"] = str(666)
     else:
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_num
+    ##newly added line
+    os.environ["CUDA_VISIBLE_DEVICES"] = gpu_num = str(0)
     keras.backend.tensorflow_backend.set_session(get_session())
 
     # make save path if it doesn't exist
