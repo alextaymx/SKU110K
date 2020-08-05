@@ -383,7 +383,7 @@ def merge_detections(image_name, results):
     image_name = result_df['image_name'].iloc[0]
     if pixel_data is None:
         if 'COLAB_GPU' in os.environ:
-		    pixel_data = read_image_bgr(os.path.join('dataset', 'images',  image_name))
+            pixel_data = read_image_bgr(os.path.join('dataset', image_name))
         else:
             pixel_data = read_image_bgr(os.path.join(root_dir(),  image_name))
 
